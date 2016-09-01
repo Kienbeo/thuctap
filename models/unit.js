@@ -1,9 +1,9 @@
-var mongoose = required('mongoose');
+var mongoose = require('mongoose');
 
-var schema = mongoose.Shema({
+var schema = mongoose.Schema({
     name: String,
     content: String,
-    week: Integer,
+    week: Number,
     answer: String,
     answer1: String,
     answer2: String,
@@ -20,7 +20,7 @@ function createunit(n, c, w, a, a1, a2, a3, a4 ) {
     this.answer2= a2;
     this.answer3= a3;
     this.answer4= a4;
-}
+};
 
-module.exports = mongoose.model('Unit', schema);
+module.exports = mongoose.model('Unit',schema);
 

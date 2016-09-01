@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+var Unit = require('../models/unit.js');
 
 var isAuthenticated = function (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
@@ -45,6 +47,31 @@ module.exports = function(passport){
 
 	router.get('/createunit', isAuthenticated, function(req, res){
 		res.render('createunit');
+	});
+
+	router.post('/createunit', function(req, res){
+		var m_unit = new Unit({
+			name: req.body.name,
+			content: req.body.content,
+			week: req.body.week,
+			answer: req.body.answer,
+			answer1 : req.body.answer1,
+			answer2 : req.body.answer2,
+			answer3 : req.body.answer3,
+			answer4 : req.body.answer4
+		});
+		m_unit.save(function (err) {
+			if(err){
+				throw(err);
+			}
+		})
+		res.redirect('/allunit');
+	});
+
+	router.get('/allunit', function(req, res){
+		Unit.find({}, function (err, unit) {
+			res.json(unit);
+		});
 	});
 
 	/* Handle Logout */
