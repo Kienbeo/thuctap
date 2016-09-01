@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    div.container
+        form(action='/' method='POST')
+            input(type='text', name='name', autofocus, placeholder='name' )
+            br
+            input(type='text', name='content', placeholder='content')
+            br
+            input(type='text', name='week', placeholder='week')
+            br
+            input(type='text', name='answer', placeholder='answer')
+            br
+            input(type='text', name='answer1', placeholder='a1')
+            br
+            input(type='text', name='answer2', placeholder='a2')
+            br
+            input(type='text', name='answer3', placeholder='a3')
+            br
+            input(type='text', name='answer4', placeholder='a5')
+            br
+            button(type='submit') Send

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.container
+		p.title Welcome #{user.firstName}. Details:
+		ul.user-details
+			li Username ---> #{user.username}
+			li Email    ---> #{user.email}
+			li First Name ---> #{user.firstName}
+			li Last Name ---> #{user.lastName}
+		br
+		h1 DS bài tập:
+		ul
+			li
+				a(href='') Tuần 1:
+			li
+				a(href='') Tuần 2:
+			li
+				a(href='') Tuần 3:
+			li
+				a(href='') Tuần 4:
+		a(href='/signout', class='text-center new-account') Sign Out
